@@ -15,6 +15,10 @@
 		342F3CF323A83EE7002CE1C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 342F3CF123A83EE7002CE1C1 /* LaunchScreen.storyboard */; };
 		342F3CFE23A83EE7002CE1C1 /* LoginScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342F3CFD23A83EE7002CE1C1 /* LoginScreenTests.swift */; };
 		342F3D0923A83EE7002CE1C1 /* LoginScreenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342F3D0823A83EE7002CE1C1 /* LoginScreenUITests.swift */; };
+		342F3D1723A851B2002CE1C1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342F3D1623A851B2002CE1C1 /* LoginViewController.swift */; };
+		342F3D1923A851CB002CE1C1 /* FacebookAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342F3D1823A851CB002CE1C1 /* FacebookAccountViewController.swift */; };
+		342F3D1C23A85211002CE1C1 /* MakeAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342F3D1B23A85211002CE1C1 /* MakeAccountViewController.swift */; };
+		342F3D2023A8AC1E002CE1C1 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342F3D1F23A8AC1E002CE1C1 /* Button.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,10 @@
 		342F3D0423A83EE7002CE1C1 /* LoginScreenUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoginScreenUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		342F3D0823A83EE7002CE1C1 /* LoginScreenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenUITests.swift; sourceTree = "<group>"; };
 		342F3D0A23A83EE7002CE1C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		342F3D1623A851B2002CE1C1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		342F3D1823A851CB002CE1C1 /* FacebookAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookAccountViewController.swift; sourceTree = "<group>"; };
+		342F3D1B23A85211002CE1C1 /* MakeAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeAccountViewController.swift; sourceTree = "<group>"; };
+		342F3D1F23A8AC1E002CE1C1 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,10 +110,12 @@
 				342F3CE623A83EE5002CE1C1 /* AppDelegate.swift */,
 				342F3CE823A83EE5002CE1C1 /* SceneDelegate.swift */,
 				342F3CEA23A83EE5002CE1C1 /* ViewController.swift */,
+				342F3D1F23A8AC1E002CE1C1 /* Button.swift */,
 				342F3CEC23A83EE5002CE1C1 /* Main.storyboard */,
 				342F3CEF23A83EE7002CE1C1 /* Assets.xcassets */,
 				342F3CF123A83EE7002CE1C1 /* LaunchScreen.storyboard */,
 				342F3CF423A83EE7002CE1C1 /* Info.plist */,
+				342F3D1A23A851EB002CE1C1 /* Transition */,
 			);
 			path = LoginScreen;
 			sourceTree = "<group>";
@@ -126,6 +136,16 @@
 				342F3D0A23A83EE7002CE1C1 /* Info.plist */,
 			);
 			path = LoginScreenUITests;
+			sourceTree = "<group>";
+		};
+		342F3D1A23A851EB002CE1C1 /* Transition */ = {
+			isa = PBXGroup;
+			children = (
+				342F3D1623A851B2002CE1C1 /* LoginViewController.swift */,
+				342F3D1823A851CB002CE1C1 /* FacebookAccountViewController.swift */,
+				342F3D1B23A85211002CE1C1 /* MakeAccountViewController.swift */,
+			);
+			path = Transition;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,9 +279,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				342F3D1723A851B2002CE1C1 /* LoginViewController.swift in Sources */,
 				342F3CEB23A83EE5002CE1C1 /* ViewController.swift in Sources */,
+				342F3D1C23A85211002CE1C1 /* MakeAccountViewController.swift in Sources */,
+				342F3D2023A8AC1E002CE1C1 /* Button.swift in Sources */,
 				342F3CE723A83EE5002CE1C1 /* AppDelegate.swift in Sources */,
 				342F3CE923A83EE5002CE1C1 /* SceneDelegate.swift in Sources */,
+				342F3D1923A851CB002CE1C1 /* FacebookAccountViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
