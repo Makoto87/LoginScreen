@@ -107,6 +107,7 @@ class ViewController: UIViewController, UITextViewDelegate {
             Imageview.image = image[i]
             Imageview.alpha = 0.35
             
+            
             // 見出しラベルの設定
             let label = UILabel(frame: CGRect(x: size.width * CGFloat(i), y: size.height / 3, width: size.width, height: size.height))
             label.numberOfLines = 0 // 改行できるようにする

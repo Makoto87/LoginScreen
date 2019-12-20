@@ -23,8 +23,12 @@ class LoginViewController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // ボタンの形を設定
-//        nextViewButton.layer.cornerRadius = 30
+       
+        
+        // テキストフィールドに下線をつける
+        emailTextField.addBorderBottom(height: 1.0, color: UIColor.white)
+        passwordTextField.addBorderBottom(height: 1.0, color: UIColor.white)
+
         
         // ナビゲーションバーアイテムの色
         self.navigationController?.navigationBar.tintColor = .white
@@ -90,10 +94,11 @@ class LoginViewController: UIViewController, UITextViewDelegate {
 }
 
 
+// テキストフィールドに下線をつける
 extension UITextField {
     func addBorderBottom(height: CGFloat, color: UIColor) {
         let border = CALayer()
-        border.frame = CGRect(x: 0, y: self.frame.height - height, width: self.frame.width, height: height)
+        border.frame = CGRect(x: 0, y: self.frame.height - (height - 10), width: self.frame.width, height: height)
         border.backgroundColor = color.cgColor
         self.layer.addSublayer(border)
     }

@@ -10,9 +10,18 @@ import UIKit
 
 class MakeAccountViewController: UIViewController {
 
+    @IBOutlet weak var firstNameTextField: UITextField!
+    @IBOutlet weak var lastNameTextField: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // テキストフィールドに下線をつける
+        firstNameTextField.addBorderBottom(height: 1.0, color: UIColor.white)
+        lastNameTextField.addBorderBottom(height: 1.0, color: UIColor.white)
+
+        
         // ナビゲーションバーアイテムの色
         self.navigationController?.navigationBar.tintColor = .white
         // ナビゲーションバーのテキストを変更する
@@ -50,16 +59,8 @@ class MakeAccountViewController: UIViewController {
 
         //グラデーションレイヤーをビューの一番下に配置
         self.view.layer.insertSublayer(gradientLayer, at: 0)    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
+
+
+
