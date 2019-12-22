@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextViewDelegate {
+class ViewController: UIViewController, UIScrollViewDelegate, UITextViewDelegate {
     
     
     // 一番下にある文章
@@ -27,19 +27,18 @@ class ViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var makeAccount: UIButton!
     
     
-    // スクロールビューのためのコピペ
     // ページビューに入れるための画像
     private let image: [UIImage] = [UIImage(named: "tacos")!, UIImage(named: "search")!, UIImage(named: "shop")!, UIImage(named: "take")!]
+    // ピックスのロゴをスクロールビューに入れるためだけの配列
+//    private let logoImage: UIImage = UIImage(named: "picks_logo")!
     // 見出しのラベル
-    private let labelLarge: [String] = ["PICKS", "お店をSearch!", "好きな料理をOrder!", "出来立てをGet!"]
+    private let labelLarge: [String] = ["", "お店をSearch!", "好きな料理をOrder!", "出来立てをGet!"]
     // 説明文
-    private let labelLittle: [String] = ["現在地・ジャンルからお店を検索", "", "キャッシュレスで、事前注文までたったの3タップ", "指定時間に出来立ての料理を受け取る"]
+    private let labelLittle: [String] = ["", "現在地・ジャンルからお店を検索", "キャッシュレスで、\n事前注文までたったの3タップ", "指定時間に出来立ての料理を受け取る"]
     // 現在表示されているページの初期値
     private var page: Int = 0
     // ScrollViewをスクロールする前の位置
     private var startPoint: CGPoint!
-    // 表示するページビューの配列。格納用。
-    private var pageViewArray: [UIImageView] = []
     
     
     override func viewDidLoad() {
@@ -52,13 +51,13 @@ class ViewController: UIViewController, UITextViewDelegate {
         // ラベル枠を丸くする
         buttonFacebook.layer.masksToBounds = true
         // ラベル丸枠の半径
-        buttonFacebook.layer.cornerRadius = 10
+        buttonFacebook.layer.cornerRadius = 25
         
         // アカウント作成していただく
         // ラベル枠を丸くする
         makeAccount.layer.masksToBounds = true
         // ラベル丸枠の半径
-        makeAccount.layer.cornerRadius = 10
+        makeAccount.layer.cornerRadius = 25
         
         // テキストにリンクを入れるようの
         let baseString = "※当サービスに会員登録・ログインすることで、サービス利用規約・プライバシーポリシーに同意します。"
@@ -99,45 +98,65 @@ class ViewController: UIViewController, UITextViewDelegate {
         let contentRect = CGRect(x: 0, y: 0, width: size.width * CGFloat(4), height: size.height)
         // contentViewはcontentRectと同じ座標と幅・高さ
         let contentView = UIView(frame: contentRect)
+        
+        
+        // 画像を灰色にするための定数
+        let grayImage = UIImageView(frame: CGRect(x: 0, y: 0, width: scrollView.frame.size.width * CGFloat(4), height: scrollView.frame.size.height))
+        grayImage.backgroundColor = .gray
+        grayImage.alpha = 0.75
 
+        // 画像を載せつつ灰色にする
         for i in 0..<4 {
             // 画像をスクロールビューに反映させる
             // 0,1,2,3の順番でイメージビューを指定し、コンテントビューにつける
             let Imageview = UIImageView(frame: CGRect(x: size.width * CGFloat(i), y: 0, width: size.width, height: size.height))
             Imageview.image = image[i]
-            Imageview.alpha = 0.35
-            
+            contentView.addSubview(Imageview)
+        }
+        
+        contentView.addSubview(grayImage)
+        
+        // 灰色にせずにラベルをつける
+        for i in 0..<4 {
             
             // 見出しラベルの設定
-            let label = UILabel(frame: CGRect(x: size.width * CGFloat(i), y: size.height / 3, width: size.width, height: size.height))
+            let label = UILabel(frame: CGRect(x: size.width * CGFloat(i), y: size.height / 3, width: size.width, height: 42))
             label.numberOfLines = 0 // 改行できるようにする
             label.text = labelLarge[i]  // ラベルのテキストを配列からて取ってくる
-            label.textColor = .white    // テキストを黒色
+            label.textColor = .white    // テキストをしろ色
             label.font = label.font.withSize(40)    // 文字の大きさ
             label.textAlignment = NSTextAlignment.center    // テキストを中央揃えにする
-            label.sizeToFit() // サイズの自動調整
+
+            
             
             // 説明文ラベルの設定
-            let labelSmall = UILabel(frame: CGRect(x: size.width * CGFloat(i), y: size.height / 3 + 50, width: size.width, height: size.height))
+            let labelSmall = UILabel(frame: CGRect(x: size.width * CGFloat(i) , y: size.height / 3 + 50, width: size.width, height: 50))
             labelSmall.numberOfLines = 0 // 改行できるようにする
             labelSmall.text = labelLittle[i]  // ラベルのテキストを配列からて取ってくる
-            labelSmall.textColor = .white    // テキストを黒色
+            
+            labelSmall.textColor = .white    // テキストを白色
             labelSmall.font = labelSmall.font.withSize(20)    // 文字の大きさ
             labelSmall.textAlignment = NSTextAlignment.center    // テキストを中央揃えにする
-            labelSmall.sizeToFit() // サイズの自動調整
+            
             
             // コンテントビューに貼り付け
-            contentView.addSubview(Imageview)
             contentView.addSubview(label)
             contentView.addSubview(labelSmall)
-            // あとで再描画をできるように保持
-            pageViewArray.append(Imageview)
+            
         }
+        
+        // ロゴをスクロールビューに貼り付ける
+        let logoImage:UIImage? = UIImage(named: "picks_logo")
+        let logoImageview = UIImageView(frame: CGRect(x: self.view.bounds.width / 2 - 100, y: size.height / 3, width: 200, height: 40))
+        logoImageview.image = logoImage
+        contentView.addSubview(logoImageview)
+        
+        
         // scrollViewに4ページ分のViewとサイズを設定する
         scrollView.addSubview(contentView)
         scrollView.contentSize = contentView.frame.size
-        // 最初に表示するページ
-        page = 0
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
