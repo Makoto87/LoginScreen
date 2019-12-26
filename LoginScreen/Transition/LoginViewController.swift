@@ -44,12 +44,7 @@ class LoginViewController: UIViewController, UITextViewDelegate {
         self.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController!.navigationBar.shadowImage = UIImage()
         
-        // ナビゲーションバーをスライドさせる
-        
-//        self.navigationController?.navigationBar.center = self.view.center
-//        UIView.animate(withDuration: 1.0, delay: 0.0, options: .autoreverse, animations: {
-//            self.navigationController?.navigationBar.center.y += 100.0
-//        }, completion: nil)
+
         
         // グラデーション設定
         //グラデーションの開始色
@@ -89,8 +84,14 @@ class LoginViewController: UIViewController, UITextViewDelegate {
          // （isSelectableはデフォルトtrueだが説明のため記述）
          helpText.isSelectable = true
          helpText.isEditable = false
-        helpText.delegate = self
+         helpText.delegate = self
     }
+    
+    @IBAction func nextViewButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
 }
 
 

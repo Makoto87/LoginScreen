@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3408BE7223B510EA009601DE /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3408BE7123B510EA009601DE /* NavigationViewController.swift */; };
+		340B114723B22D83006D08BF /* Home4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340B114623B22D83006D08BF /* Home4ViewController.swift */; };
+		3410762523B032320014F1F6 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3410762423B032320014F1F6 /* Home.storyboard */; };
+		3410762723B036040014F1F6 /* Home1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3410762623B036040014F1F6 /* Home1ViewController.swift */; };
+		3410762B23B0362E0014F1F6 /* Home3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3410762A23B0362E0014F1F6 /* Home3ViewController.swift */; };
 		342F3CE723A83EE5002CE1C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342F3CE623A83EE5002CE1C1 /* AppDelegate.swift */; };
 		342F3CE923A83EE5002CE1C1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342F3CE823A83EE5002CE1C1 /* SceneDelegate.swift */; };
 		342F3CEB23A83EE5002CE1C1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342F3CEA23A83EE5002CE1C1 /* ViewController.swift */; };
@@ -19,6 +24,8 @@
 		342F3D1923A851CB002CE1C1 /* FacebookAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342F3D1823A851CB002CE1C1 /* FacebookAccountViewController.swift */; };
 		342F3D1C23A85211002CE1C1 /* MakeAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342F3D1B23A85211002CE1C1 /* MakeAccountViewController.swift */; };
 		342F3D2023A8AC1E002CE1C1 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342F3D1F23A8AC1E002CE1C1 /* Button.swift */; };
+		3459EA7023B110EB00921B7E /* Home2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3459EA6F23B110EB00921B7E /* Home2ViewController.swift */; };
+		3459EA7223B1359400921B7E /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3459EA7123B1359400921B7E /* TabBarViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +46,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3408BE7123B510EA009601DE /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
+		340B114623B22D83006D08BF /* Home4ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home4ViewController.swift; sourceTree = "<group>"; };
+		3410762423B032320014F1F6 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		3410762623B036040014F1F6 /* Home1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home1ViewController.swift; sourceTree = "<group>"; };
+		3410762A23B0362E0014F1F6 /* Home3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home3ViewController.swift; sourceTree = "<group>"; };
 		342F3CE323A83EE5002CE1C1 /* LoginScreen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoginScreen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		342F3CE623A83EE5002CE1C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		342F3CE823A83EE5002CE1C1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +69,8 @@
 		342F3D1823A851CB002CE1C1 /* FacebookAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookAccountViewController.swift; sourceTree = "<group>"; };
 		342F3D1B23A85211002CE1C1 /* MakeAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeAccountViewController.swift; sourceTree = "<group>"; };
 		342F3D1F23A8AC1E002CE1C1 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		3459EA6F23B110EB00921B7E /* Home2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home2ViewController.swift; sourceTree = "<group>"; };
+		3459EA7123B1359400921B7E /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,9 +98,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3410762323B0320F0014F1F6 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				3410762423B032320014F1F6 /* Home.storyboard */,
+				3410762623B036040014F1F6 /* Home1ViewController.swift */,
+				3410762A23B0362E0014F1F6 /* Home3ViewController.swift */,
+				3459EA6F23B110EB00921B7E /* Home2ViewController.swift */,
+				3459EA7123B1359400921B7E /* TabBarViewController.swift */,
+				340B114623B22D83006D08BF /* Home4ViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		342F3CDA23A83EE5002CE1C1 = {
 			isa = PBXGroup;
 			children = (
+				342F3CE623A83EE5002CE1C1 /* AppDelegate.swift */,
+				342F3CE823A83EE5002CE1C1 /* SceneDelegate.swift */,
+				3410762323B0320F0014F1F6 /* Home */,
 				342F3CE523A83EE5002CE1C1 /* LoginScreen */,
 				342F3CFC23A83EE7002CE1C1 /* LoginScreenTests */,
 				342F3D0723A83EE7002CE1C1 /* LoginScreenUITests */,
@@ -107,9 +137,8 @@
 		342F3CE523A83EE5002CE1C1 /* LoginScreen */ = {
 			isa = PBXGroup;
 			children = (
-				342F3CE623A83EE5002CE1C1 /* AppDelegate.swift */,
-				342F3CE823A83EE5002CE1C1 /* SceneDelegate.swift */,
 				342F3CEA23A83EE5002CE1C1 /* ViewController.swift */,
+				3408BE7123B510EA009601DE /* NavigationViewController.swift */,
 				342F3D1F23A8AC1E002CE1C1 /* Button.swift */,
 				342F3CEC23A83EE5002CE1C1 /* Main.storyboard */,
 				342F3CEF23A83EE7002CE1C1 /* Assets.xcassets */,
@@ -255,6 +284,7 @@
 				342F3CF323A83EE7002CE1C1 /* LaunchScreen.storyboard in Resources */,
 				342F3CF023A83EE7002CE1C1 /* Assets.xcassets in Resources */,
 				342F3CEE23A83EE5002CE1C1 /* Main.storyboard in Resources */,
+				3410762523B032320014F1F6 /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,10 +310,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				342F3D1723A851B2002CE1C1 /* LoginViewController.swift in Sources */,
+				3408BE7223B510EA009601DE /* NavigationViewController.swift in Sources */,
 				342F3CEB23A83EE5002CE1C1 /* ViewController.swift in Sources */,
+				3410762B23B0362E0014F1F6 /* Home3ViewController.swift in Sources */,
+				3459EA7223B1359400921B7E /* TabBarViewController.swift in Sources */,
+				340B114723B22D83006D08BF /* Home4ViewController.swift in Sources */,
 				342F3D1C23A85211002CE1C1 /* MakeAccountViewController.swift in Sources */,
 				342F3D2023A8AC1E002CE1C1 /* Button.swift in Sources */,
 				342F3CE723A83EE5002CE1C1 /* AppDelegate.swift in Sources */,
+				3410762723B036040014F1F6 /* Home1ViewController.swift in Sources */,
+				3459EA7023B110EB00921B7E /* Home2ViewController.swift in Sources */,
 				342F3CE923A83EE5002CE1C1 /* SceneDelegate.swift in Sources */,
 				342F3D1923A851CB002CE1C1 /* FacebookAccountViewController.swift in Sources */,
 			);
@@ -460,6 +496,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = LoginScreen/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -477,6 +514,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = LoginScreen/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

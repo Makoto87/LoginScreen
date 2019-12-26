@@ -69,9 +69,12 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextViewDelegate
         attributedString.addAttribute(.link,
         value: "https://www.google.co.jp/",
         range: NSString(string: baseString).range(of: "プライバシーポリシー"))
+        // 文章に下線をつける
+       
         
         bottomText.attributedText = attributedString
-
+        bottomText.textColor = .white
+        
         // isSelectableをtrue、isEditableをfalseにする必要がある
         // （isSelectableはデフォルトtrueだが説明のため記述）
         bottomText.isSelectable = true
@@ -111,6 +114,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextViewDelegate
             // 0,1,2,3の順番でイメージビューを指定し、コンテントビューにつける
             let Imageview = UIImageView(frame: CGRect(x: size.width * CGFloat(i), y: 0, width: size.width, height: size.height))
             Imageview.image = image[i]
+            Imageview.contentMode = .scaleAspectFill
+            Imageview.clipsToBounds = true
             contentView.addSubview(Imageview)
         }
         
@@ -149,6 +154,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextViewDelegate
         let logoImage:UIImage? = UIImage(named: "picks_logo")
         let logoImageview = UIImageView(frame: CGRect(x: self.view.bounds.width / 2 - 100, y: size.height / 3, width: 200, height: 40))
         logoImageview.image = logoImage
+        logoImageview.contentMode = .scaleAspectFill
         contentView.addSubview(logoImageview)
         
         
