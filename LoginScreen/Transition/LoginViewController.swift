@@ -88,7 +88,16 @@ class LoginViewController: UIViewController, UITextViewDelegate {
     }
     
     @IBAction func nextViewButton(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        
+        // 画面遷移
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let nextvc = storyboard.instantiateViewController(withIdentifier: "TabBar")
+        nextvc.modalPresentationStyle = .fullScreen // 全面表示
+        self.present(nextvc, animated: true, completion: nil)
+        // 遷移するときにトップ画面に戻しておく
+        self.navigationController?.popToRootViewController(animated: true)
+        
+//        self.dismiss(animated: true, completion: nil)
     }
     
     

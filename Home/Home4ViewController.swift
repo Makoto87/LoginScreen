@@ -19,12 +19,19 @@ class Home4ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        
+        
+    }
+    
     // ログイン画面へ遷移する
     @IBAction func toLoginButton(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let nextvc = storyboard.instantiateViewController(withIdentifier: "Navi")
-        nextvc.modalPresentationStyle = .fullScreen // 全面表示
-        self.present(nextvc, animated: true, completion: nil)
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let nextvc = storyboard.instantiateViewController(withIdentifier: "Navi")
+//        nextvc.modalPresentationStyle = .fullScreen // 全面表示
+//        self.present(nextvc, animated: true, completion: nil)
+        
+        self.dismiss(animated: true, completion: nil)
         
     }
     

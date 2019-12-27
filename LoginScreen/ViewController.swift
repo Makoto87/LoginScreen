@@ -70,7 +70,10 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextViewDelegate
         value: "https://www.google.co.jp/",
         range: NSString(string: baseString).range(of: "プライバシーポリシー"))
         // 文章に下線をつける
-       
+        attributedString.addAttribute(NSAttributedString.Key.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: NSString(string: baseString).range(of: "サービス利用規約"))
+        attributedString.addAttribute(NSAttributedString.Key.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: NSString(string: baseString).range(of: "プライバシーポリシー"))
+
+
         
         bottomText.attributedText = attributedString
         bottomText.textColor = .white
@@ -94,6 +97,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextViewDelegate
     // スクロールビューのためのコピペ
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+
         //　scrollViewの表示サイズ（全面）を定数sizeに格納
         let size = CGSize(width: scrollView.frame.size.width, height: scrollView.frame.size.height)
         // 4ページ分のcontentSizeを作成。定数に格納。
@@ -101,6 +105,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextViewDelegate
         let contentRect = CGRect(x: 0, y: 0, width: size.width * CGFloat(4), height: size.height)
         // contentViewはcontentRectと同じ座標と幅・高さ
         let contentView = UIView(frame: contentRect)
+        
         
         
         // 画像を灰色にするための定数
