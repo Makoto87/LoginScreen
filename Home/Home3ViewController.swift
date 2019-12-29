@@ -10,7 +10,7 @@ import UIKit
 
 class Home3ViewController: UIViewController, UITabBarDelegate {
 
-    var number = 1
+    var number = 0
 
     
     override func viewDidLoad() {
@@ -22,9 +22,9 @@ class Home3ViewController: UIViewController, UITabBarDelegate {
     
     // リセットボタン
     @IBAction func resetButton(_ sender: Any) {
-        number = 1
+        number = 0
         
-        if let controller = tabBarController?.viewControllers?[1] as? Home2ViewController {
+        if let nc = tabBarController?.viewControllers?[1] as? HomeNavigationViewController, let controller = nc.viewControllers[0] as? Home2ViewController {
             controller.count = number
             print(controller.count)
             // 画面を再形成させる

@@ -286,33 +286,8 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="topCell" rowHeight="82" id="Ske-Kl-IXj" customClass="topCell" customModule="LoginScreen" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="82"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ske-Kl-IXj" id="T5A-7I-4YZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="82"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="お気に入り" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pky-Tf-qXq">
-                                                    <rect key="frame" x="20" y="0.0" width="374" height="82"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="pky-Tf-qXq" firstAttribute="top" secondItem="T5A-7I-4YZ" secondAttribute="top" id="1mD-Wt-4wy"/>
-                                                <constraint firstAttribute="trailing" secondItem="pky-Tf-qXq" secondAttribute="trailing" constant="20" id="Lyx-0B-06i"/>
-                                                <constraint firstItem="pky-Tf-qXq" firstAttribute="leading" secondItem="T5A-7I-4YZ" secondAttribute="leading" constant="20" id="RCg-If-t81"/>
-                                                <constraint firstAttribute="bottom" secondItem="pky-Tf-qXq" secondAttribute="bottom" id="rt3-Ke-UNa"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="topLabel" destination="pky-Tf-qXq" id="rsF-Zl-cgN"/>
-                                        </connections>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" tag="1" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="310" id="JyU-hi-9fd" customClass="Cell" customModule="LoginScreen" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="110" width="414" height="310"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="310"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JyU-hi-9fd" id="Lxn-H7-i46">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="310"/>
@@ -370,34 +345,24 @@
                                     <outlet property="delegate" destination="mwf-3T-zIl" id="VSN-Zd-hUv"/>
                                 </connections>
                             </tableView>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="934-pp-HDc">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                                <items>
-                                    <navigationItem title="お気に入り" id="WQ0-xG-l52"/>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="934-pp-HDc" firstAttribute="trailing" secondItem="3xc-na-xay" secondAttribute="trailing" id="1Gm-ZR-CAW"/>
-                            <constraint firstItem="934-pp-HDc" firstAttribute="top" secondItem="3xc-na-xay" secondAttribute="top" id="BUq-yO-iiI"/>
-                            <constraint firstItem="934-pp-HDc" firstAttribute="leading" secondItem="3xc-na-xay" secondAttribute="leading" id="DFp-bL-Xxx"/>
+                            <constraint firstItem="wdL-aC-SDV" firstAttribute="top" secondItem="3xc-na-xay" secondAttribute="top" id="Lyb-Dc-Q4C"/>
                             <constraint firstItem="wdL-aC-SDV" firstAttribute="leading" secondItem="3xc-na-xay" secondAttribute="leading" id="RXJ-tX-VHt"/>
                             <constraint firstItem="3xc-na-xay" firstAttribute="trailing" secondItem="wdL-aC-SDV" secondAttribute="trailing" id="WTT-jR-sSs"/>
                             <constraint firstItem="3xc-na-xay" firstAttribute="bottom" secondItem="wdL-aC-SDV" secondAttribute="bottom" id="Z7A-QK-ewX"/>
-                            <constraint firstItem="wdL-aC-SDV" firstAttribute="top" secondItem="934-pp-HDc" secondAttribute="bottom" id="alV-Xa-323"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3xc-na-xay"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="お気に入り" image="heart" catalog="system" id="eop-G7-EJA"/>
+                    <navigationItem key="navigationItem" title="お気に入り" largeTitleDisplayMode="always" id="6tY-SH-HyT"/>
                     <connections>
-                        <outlet property="navigationBar" destination="934-pp-HDc" id="ubc-QV-II0"/>
                         <outlet property="tableView" destination="wdL-aC-SDV" id="ByH-KS-CiK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kH9-3J-SRA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="100.00000000000001" y="-1037.2767857142858"/>
+            <point key="canvasLocation" x="1010.144927536232" y="-1037.2767857142858"/>
         </scene>
         <!--カウント-->
         <scene sceneID="Jaa-7j-sck">
@@ -473,7 +438,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="D28-15-Iuw" kind="relationship" relationship="viewControllers" id="Wbc-Jl-h0s"/>
-                        <segue destination="mwf-3T-zIl" kind="relationship" relationship="viewControllers" id="jbc-S5-Rms"/>
+                        <segue destination="NZe-kf-LFK" kind="relationship" relationship="viewControllers" id="jbc-S5-Rms"/>
                         <segue destination="amT-n3-ch7" kind="relationship" relationship="viewControllers" id="4hy-n5-j2D"/>
                         <segue destination="2Px-Cn-KzV" kind="relationship" relationship="viewControllers" id="GqV-jf-IRm"/>
                     </connections>
@@ -684,6 +649,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xqe-B8-Hxt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="133.92857142857142"/>
+        </scene>
+        <!--お気に入り-->
+        <scene sceneID="SdI-kn-YwB">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NZe-kf-LFK" customClass="HomeNavigationViewController" customModule="LoginScreen" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="お気に入り" image="heart" catalog="system" id="eop-G7-EJA"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="3yT-aY-8l8">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="mwf-3T-zIl" kind="relationship" relationship="rootViewController" id="7il-1F-stA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TWJ-xI-c3J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="100.00000000000001" y="-1037.2767857142858"/>
         </scene>
     </scenes>
     <resources>

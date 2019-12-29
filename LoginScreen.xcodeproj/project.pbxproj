@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		340240C423B8A73200A98265 /* HomeNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340240C323B8A73200A98265 /* HomeNavigationViewController.swift */; };
 		3408BE7223B510EA009601DE /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3408BE7123B510EA009601DE /* NavigationViewController.swift */; };
 		340B114723B22D83006D08BF /* Home4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340B114623B22D83006D08BF /* Home4ViewController.swift */; };
 		3410762523B032320014F1F6 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3410762423B032320014F1F6 /* Home.storyboard */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		340240C323B8A73200A98265 /* HomeNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigationViewController.swift; sourceTree = "<group>"; };
 		3408BE7123B510EA009601DE /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		340B114623B22D83006D08BF /* Home4ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home4ViewController.swift; sourceTree = "<group>"; };
 		3410762423B032320014F1F6 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				3459EA6F23B110EB00921B7E /* Home2ViewController.swift */,
 				3459EA7123B1359400921B7E /* TabBarViewController.swift */,
 				340B114623B22D83006D08BF /* Home4ViewController.swift */,
+				340240C323B8A73200A98265 /* HomeNavigationViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				342F3CEB23A83EE5002CE1C1 /* ViewController.swift in Sources */,
 				3410762B23B0362E0014F1F6 /* Home3ViewController.swift in Sources */,
 				3459EA7223B1359400921B7E /* TabBarViewController.swift in Sources */,
+				340240C423B8A73200A98265 /* HomeNavigationViewController.swift in Sources */,
 				340B114723B22D83006D08BF /* Home4ViewController.swift in Sources */,
 				342F3D1C23A85211002CE1C1 /* MakeAccountViewController.swift in Sources */,
 				342F3D2023A8AC1E002CE1C1 /* Button.swift in Sources */,

@@ -10,12 +10,11 @@ import UIKit
 
 class Home2ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITabBarDelegate {
     
-    @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var tableView: UITableView!
-    
+        
     // セル内のボタン
     
-    var count = 1
+    var count = 0
         
     
     // ダミー画像配列
@@ -26,12 +25,14 @@ class Home2ViewController: UIViewController, UITableViewDelegate, UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
         
+       
+        
         tableView.delegate = self
         tableView.dataSource = self
 
         // 影を消す
-        navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
 
     }
     
@@ -42,27 +43,16 @@ class Home2ViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        if indexPath.row == 0 {
-            return 60
-        }
         return 250
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if indexPath.row == 0 {
-            
-            let cell: topCell = tableView.dequeueReusableCell(withIdentifier: "topCell", for: indexPath) as! topCell
-            
-            cell.topLabel.font = UIFont.boldSystemFont(ofSize: 30)
-
-            return cell
-        }
         
         let cell: Cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! Cell
         
-        cell.cellImage.image = images[indexPath.row - 1]
-        cell.cellTitle.text = texts[indexPath.row - 1]
+        cell.cellImage.image = images[indexPath.row]
+        cell.cellTitle.text = texts[indexPath.row]
         cell.cellButton.layer.cornerRadius = 10
         
 
@@ -81,9 +71,4 @@ class Cell: UITableViewCell {
 }
 
 
-class topCell: UITableViewCell {
-    
-    @IBOutlet weak var topLabel: UILabel!
-    
-}
 
