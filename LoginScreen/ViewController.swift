@@ -29,8 +29,6 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextViewDelegate
     
     // ページビューに入れるための画像
     private let image: [UIImage] = [UIImage(named: "tacos")!, UIImage(named: "search")!, UIImage(named: "shop")!, UIImage(named: "take")!]
-    // ピックスのロゴをスクロールビューに入れるためだけの配列
-//    private let logoImage: UIImage = UIImage(named: "picks_logo")!
     // 見出しのラベル
     private let labelLarge: [String] = ["", "お店をSearch!", "好きな料理をOrder!", "出来立てをGet!"]
     // 説明文
@@ -38,14 +36,27 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextViewDelegate
     // 現在表示されているページの初期値
     private var page: Int = 0
     // ScrollViewをスクロールする前の位置
-    private var startPoint: CGPoint!
+//    private var startPoint: CGPoint!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // スクロールビューのレイアウト
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        scrollView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1).isActive = true
+        scrollView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 1).isActive = true
+        // 中身をスクロールビューの幅と高さに合わせる。
+        scrollView.contentInsetAdjustmentBehavior = .never
+
+        
         // スクロールビューのデリゲート
         scrollView.delegate = self
+        
+        // スクロールビューの余計なスクロールを防ぐ
+        self.scrollView.bounces = false
         
         // facebookボタンの設定
         // ラベル枠を丸くする
@@ -86,7 +97,6 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextViewDelegate
         
     }
     
-    
     // コピペ。スクロール停止時に呼び出されるメソッド
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
     
@@ -97,7 +107,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextViewDelegate
     // スクロールビューのためのコピペ
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
+        
+        
         //　scrollViewの表示サイズ（全面）を定数sizeに格納
         let size = CGSize(width: scrollView.frame.size.width, height: scrollView.frame.size.height)
         // 4ページ分のcontentSizeを作成。定数に格納。
@@ -105,8 +116,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextViewDelegate
         let contentRect = CGRect(x: 0, y: 0, width: size.width * CGFloat(4), height: size.height)
         // contentViewはcontentRectと同じ座標と幅・高さ
         let contentView = UIView(frame: contentRect)
-        
-        
+
         
         // 画像を灰色にするための定数
         let grayImage = UIImageView(frame: CGRect(x: 0, y: 0, width: scrollView.frame.size.width * CGFloat(4), height: scrollView.frame.size.height))
@@ -119,8 +129,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextViewDelegate
             // 0,1,2,3の順番でイメージビューを指定し、コンテントビューにつける
             let Imageview = UIImageView(frame: CGRect(x: size.width * CGFloat(i), y: 0, width: size.width, height: size.height))
             Imageview.image = image[i]
-            Imageview.contentMode = .scaleAspectFill
-            Imageview.clipsToBounds = true
+            Imageview.contentMode = .scaleAspectFill    // 画像の比率をちょうどよくする
+            Imageview.clipsToBounds = true  // 画像を領域内だけで表示させる。
             contentView.addSubview(Imageview)
         }
         
@@ -134,9 +144,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextViewDelegate
             label.numberOfLines = 0 // 改行できるようにする
             label.text = labelLarge[i]  // ラベルのテキストを配列からて取ってくる
             label.textColor = .white    // テキストをしろ色
-            label.font = label.font.withSize(40)    // 文字の大きさ
             label.textAlignment = NSTextAlignment.center    // テキストを中央揃えにする
-
+            label.font = .boldSystemFont(ofSize: 40)    // 文字を大きくして太字にする
             
             
             // 説明文ラベルの設定
@@ -162,12 +171,13 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextViewDelegate
         logoImageview.contentMode = .scaleAspectFill
         contentView.addSubview(logoImageview)
         
+       
         
         // scrollViewに4ページ分のViewとサイズを設定する
         scrollView.addSubview(contentView)
         scrollView.contentSize = contentView.frame.size
         
-        
+                        
     }
     
     override func viewWillAppear(_ animated: Bool) {
