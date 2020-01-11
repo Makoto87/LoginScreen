@@ -42,6 +42,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UITextViewDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         // スクロールビューのレイアウト
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true

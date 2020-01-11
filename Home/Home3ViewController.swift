@@ -26,10 +26,14 @@ class Home3ViewController: UIViewController, UITabBarDelegate {
         
         if let nc = tabBarController?.viewControllers?[1] as? HomeNavigationViewController, let controller = nc.viewControllers[0] as? Home2ViewController {
             controller.count = number
-            print(controller.count)
+            controller.detailWeatherTexts.removeAll()
+            controller.maxTemperatures.removeAll()
+            controller.minTemperatures.removeAll()
+            controller.weatherTexts.removeAll()
+            controller.weatherImages.removeAll()
             // 画面を再形成させる
             controller.loadView()
-            controller.viewDidLoad()
+            controller.viewWillAppear(true)
         }
         
         if let controller = tabBarController?.viewControllers?[0] as? Home1ViewController {

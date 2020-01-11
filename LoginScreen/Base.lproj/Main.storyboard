@@ -357,11 +357,93 @@
                     <navigationItem key="navigationItem" title="お気に入り" largeTitleDisplayMode="always" id="6tY-SH-HyT"/>
                     <connections>
                         <outlet property="tableView" destination="wdL-aC-SDV" id="ByH-KS-CiK"/>
+                        <segue destination="42T-aL-Q0d" kind="push" identifier="showDetail" id="AOV-3h-13z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kH9-3J-SRA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1010.144927536232" y="-1037.2767857142858"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="D1p-X9-ega">
+            <objects>
+                <viewController id="42T-aL-Q0d" customClass="DetailViewController" customModule="LoginScreen" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Xnp-LR-gyU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="天気概況文" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4LK-cx-Iya">
+                                <rect key="frame" x="163.5" y="153.5" width="87" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="天気概況分が入る" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fl3-HN-Tg1">
+                                <rect key="frame" x="10" y="179.5" width="394" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最高気温が入る" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ezh-e8-EE5">
+                                <rect key="frame" x="146.5" y="235.5" width="121.5" height="20.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="121.5" id="hiM-TY-8kf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最低気温" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E3a-EL-ljp">
+                                <rect key="frame" x="172.5" y="266" width="69.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最低気温が入る" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="od1-eQ-y5E">
+                                <rect key="frame" x="146.5" y="291.5" width="121.5" height="20.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="121.5" id="3Jd-x5-BJR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最高気温" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CFj-vf-59T">
+                                <rect key="frame" x="172.5" y="210" width="69.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="CFj-vf-59T" firstAttribute="centerX" secondItem="Xnp-LR-gyU" secondAttribute="centerX" id="0iu-kH-xR5"/>
+                            <constraint firstItem="CFj-vf-59T" firstAttribute="top" secondItem="fl3-HN-Tg1" secondAttribute="bottom" constant="10" id="4Mb-CY-ArC"/>
+                            <constraint firstItem="4LK-cx-Iya" firstAttribute="top" secondItem="WOg-Fl-IIq" secondAttribute="top" constant="5" id="ATy-lf-Hsm"/>
+                            <constraint firstItem="4LK-cx-Iya" firstAttribute="centerX" secondItem="Xnp-LR-gyU" secondAttribute="centerX" id="Bqv-AI-4My"/>
+                            <constraint firstItem="fl3-HN-Tg1" firstAttribute="top" secondItem="4LK-cx-Iya" secondAttribute="bottom" constant="5" id="FfK-j6-N9x"/>
+                            <constraint firstItem="E3a-EL-ljp" firstAttribute="centerX" secondItem="Xnp-LR-gyU" secondAttribute="centerX" id="Gi2-OZ-DJo"/>
+                            <constraint firstItem="Ezh-e8-EE5" firstAttribute="top" secondItem="CFj-vf-59T" secondAttribute="bottom" constant="5" id="RoI-pT-pag"/>
+                            <constraint firstItem="E3a-EL-ljp" firstAttribute="top" secondItem="Ezh-e8-EE5" secondAttribute="bottom" constant="10" id="WeV-0T-LbK"/>
+                            <constraint firstItem="od1-eQ-y5E" firstAttribute="top" secondItem="E3a-EL-ljp" secondAttribute="bottom" constant="5" id="Xv5-n4-xlj"/>
+                            <constraint firstItem="fl3-HN-Tg1" firstAttribute="leading" secondItem="WOg-Fl-IIq" secondAttribute="leading" constant="10" id="ZC1-Ym-NI2"/>
+                            <constraint firstItem="Ezh-e8-EE5" firstAttribute="centerX" secondItem="Xnp-LR-gyU" secondAttribute="centerX" id="ZfG-5L-6nr"/>
+                            <constraint firstItem="fl3-HN-Tg1" firstAttribute="centerX" secondItem="Xnp-LR-gyU" secondAttribute="centerX" id="fNf-lL-Oj9"/>
+                            <constraint firstItem="WOg-Fl-IIq" firstAttribute="trailing" secondItem="fl3-HN-Tg1" secondAttribute="trailing" constant="10" id="iHz-df-6bJ"/>
+                            <constraint firstItem="od1-eQ-y5E" firstAttribute="centerX" secondItem="Xnp-LR-gyU" secondAttribute="centerX" id="w6e-Yx-38N"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="WOg-Fl-IIq"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="FV4-cm-2aq"/>
+                    <connections>
+                        <outlet property="detailWeather" destination="fl3-HN-Tg1" id="l6O-hC-wnp"/>
+                        <outlet property="max" destination="Ezh-e8-EE5" id="5QG-9K-0Lr"/>
+                        <outlet property="min" destination="od1-eQ-y5E" id="fsX-Vk-y4e"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IKC-uq-mer" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1873.913043478261" y="-1037.2767857142858"/>
         </scene>
         <!--カウント-->
         <scene sceneID="Jaa-7j-sck">
@@ -419,7 +501,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="カウント" image="magnifyingglass" catalog="system" id="FL9-s0-8yZ"/>
                     <connections>
+                        <outlet property="minus" destination="1Wh-1D-SeN" id="VKg-wZ-DOp"/>
                         <outlet property="numberLabel" destination="IIr-td-WKM" id="wDI-Ku-e4g"/>
+                        <outlet property="plus" destination="LZj-p2-RlP" id="R1T-0c-lAm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7XB-AP-e9r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
