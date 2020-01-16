@@ -36,6 +36,7 @@ class Home1ViewController: UIViewController, UITabBarDelegate {
         if self.number > 0 && self.number <= 6 {
             self.number = self.number - 1
         } else {
+            self.minus.isEnabled = true
             return
         }
         
@@ -78,6 +79,7 @@ class Home1ViewController: UIViewController, UITabBarDelegate {
         if self.number >= 0 && self.number < 6 {
             self.number = self.number + 1
         } else {
+            self.plus.isEnabled = true  // インターバル
             return
         }
         
