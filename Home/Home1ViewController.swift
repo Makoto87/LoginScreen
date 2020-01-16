@@ -25,18 +25,35 @@ class Home1ViewController: UIViewController, UITabBarDelegate {
         super.viewDidLoad()
 
         numberLabel.text = String(number)       // 数字をラベルに反映させる。
-        
+        minus.isEnabled = false     // マイナスボタンを使えないようにしておく
     }
     
     // マイナスボタン
     @IBAction func lessButoon(_ sender: Any) {
-        
-        minus.isEnabled = false // インターバルのために無効
+        // インターバルのために無効
+        minus.isEnabled = false
+        plus.isEnabled = false
         // 1~5なら数字が減る
-        if self.number > 0 && self.number <= 6 {
+        if self.number == 1 {
             self.number = self.number - 1
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.plus.isEnabled = true
+            }
+        } else if self.number > 1 && self.number <= 5 {
+            self.number = self.number - 1
+            // 1秒後にボタンを使えるようにする
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.minus.isEnabled = true
+                self.plus.isEnabled = true
+            }
+        } else if self.number == 6 {
+            self.number = self.number - 1
+            // 1秒後にボタンを使えるようにする
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.minus.isEnabled = true
+                self.plus.isEnabled = true
+            }
         } else {
-            self.minus.isEnabled = true
             return
         }
         
@@ -64,23 +81,27 @@ class Home1ViewController: UIViewController, UITabBarDelegate {
             controller.viewWillAppear(true)
         }
         
-        // 1秒後にボタンを使えるようにする
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.minus.isEnabled = true
-        }
-        
     }
     
     // プラスボタン
     @IBAction func plusButton(_ sender: Any) {
         
-        plus.isEnabled = false  // インターバルのために無効
+        // インターバルのために無効
+        plus.isEnabled = false
+        minus.isEnabled = false
         // 0~4なら+1カウントする
-        if self.number >= 0 && self.number < 6 {
+        if self.number >= 0 && self.number < 5 {
+            self.number = self.number + 1   // 数を増やす
+            // バグが起こらないようにインターバルを開ける（1秒）
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.plus.isEnabled = true  // インターバル
+                self.minus.isEnabled = true     // マイナスボタンを使えるようにする。
+            }
+        } else if self.number == 5 {
             self.number = self.number + 1
-        } else {
-            self.plus.isEnabled = true  // インターバル
-            return
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.minus.isEnabled = true     // マイナスボタンを使えるようにする。
+            }
         }
         
         self.numberLabel.text = String(self.number)       // ラベルに数字を反映させる
@@ -95,10 +116,6 @@ class Home1ViewController: UIViewController, UITabBarDelegate {
             controller.viewWillAppear(true)
         }
         
-        // バグが起こらないようにインターバルを開ける（1秒）
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.plus.isEnabled = true  // インターバル
-        }
     }
     
     

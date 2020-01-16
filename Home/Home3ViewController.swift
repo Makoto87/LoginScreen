@@ -38,6 +38,7 @@ class Home3ViewController: UIViewController, UITabBarDelegate {
             print(controller.weatherImages)
             print(controller.weatherTexts)
             print(controller.detailWeatherTexts)
+                        
             // 画面を再形成させる
             controller.loadView()
             controller.viewWillAppear(true)
@@ -45,6 +46,8 @@ class Home3ViewController: UIViewController, UITabBarDelegate {
         
         if let controller = tabBarController?.viewControllers?[0] as? Home1ViewController {
             controller.number = number
+            // マイナスボタンを使えなくする
+            controller.minus.isEnabled = false
             // 画面を再形成させる
             controller.loadView()
             controller.viewDidLoad()
