@@ -28,8 +28,6 @@ class Home1ViewController: UIViewController, UITabBarDelegate {
         
     }
     
-    
-    
     // マイナスボタン
     @IBAction func lessButoon(_ sender: Any) {
         
@@ -55,11 +53,17 @@ class Home1ViewController: UIViewController, UITabBarDelegate {
             
             print(controller.count)
             print(controller.maxTemperatures)
+            print(controller.minTemperatures)
+            print(controller.weatherImages)
+            print(controller.weatherTexts)
+            print(controller.detailWeatherTexts)
+            
             // 画面を再形成させる
             controller.loadView()
             controller.viewWillAppear(true)
         }
         
+        // 1秒後にボタンを使えるようにする
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.minus.isEnabled = true
         }
@@ -89,7 +93,7 @@ class Home1ViewController: UIViewController, UITabBarDelegate {
             controller.viewWillAppear(true)
         }
         
-        // バグが起こらないようにインターバルを開ける
+        // バグが起こらないようにインターバルを開ける（1秒）
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.plus.isEnabled = true  // インターバル
         }

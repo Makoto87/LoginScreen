@@ -11,15 +11,6 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-/*
-・livedoor天気情報のお天気Webサービスを利用すること
-・表示する個数は、今まで通りのカウント方式のままで大丈夫
-・札幌、東京、名古屋、大阪、福岡、那覇の最大6都市の当日の天気を表示
-・表示する内容は、天気の画像+文字(晴れ、曇りなど)
-・それぞれをタップすると天気概況文と当日の最高気温と最低気温を摂氏で表示
-・ライブラリを使用する場合はCocoaPodsを用いること
-ライブラリ　→ alamofire 検索。　swiftyJson JSON解析
-*/
 
 class Home2ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITabBarDelegate {
     
@@ -41,18 +32,14 @@ class Home2ViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     var url = ""    // urlを格納するための変数
     
-    
-    // カウントするたびに情報を得る。
+    // カウントするたびに画面を更新する。
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        getWeather()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        getWeather()
-        
+                
         tableView.delegate = self
         tableView.dataSource = self
 
@@ -67,19 +54,19 @@ class Home2ViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return count
     }
     
+    // セルの高さ設定
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
         return 260
     }
     
+    // セルの中身を設定
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         
         let cell: Cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! Cell
         
-        cell.cellTitle.text = weatherTexts[indexPath.row]
-        cell.cellImage.image = weatherImages[indexPath.row]
-        cell.cellButton.layer.cornerRadius = 10
+        cell.cellTitle.text = weatherTexts[indexPath.row]       // 天気の名前
+        cell.cellImage.image = weatherImages[indexPath.row]     // 天気の画像
+//        cell.cellButton.layer.cornerRadius = 10     // 今回は使わない
 
         return cell
     }
@@ -103,7 +90,7 @@ class Home2ViewController: UIViewController, UITableViewDelegate, UITableViewDat
         performSegue(withIdentifier: "showDetail", sender: nil)
        }
     
-    
+    // 画面遷移時のメソッド
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         guard segue.identifier == "showDetail", let secondVC = segue.destination as? DetailViewController  else{
@@ -124,6 +111,8 @@ class Home2ViewController: UIViewController, UITableViewDelegate, UITableViewDat
     // 天気情報を取得
     func getWeather() {
 
+        // countによって取得する情報（url）を変える
+        print(count)
         switch count {
             case 1:
                 url = "http://weather.livedoor.com/forecast/webservice/json/v1?city=016010"
@@ -141,6 +130,7 @@ class Home2ViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 break
         }
 
+        // 情報を取得する
         Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default).responseJSON { (response) in
 
             switch response.result {
@@ -150,33 +140,36 @@ class Home2ViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 guard let weatherImage = json["forecasts"][0]["image"]["url"].string else {
                     return
                 }
+
                 // 文字データを取得
-                guard let weatherText = json["forecasts"][0]["telop"].string else {
-                    return
+                if let weatherText = json["forecasts"][0]["telop"].string {
+                    self.weatherTexts.append(weatherText)   // 配列に格納
                 }
+
                 // 天気概況分を取得
-                guard let detailWeatherText = json["description"]["text"].string else {
-                    return
+                if let detailWeatherText = json["description"]["text"].string {
+                    self.detailWeatherTexts.append(detailWeatherText)   // 配列に格納
                 }
-                self.detailWeatherTexts.append(detailWeatherText)
+
                 // 最高気温を取得
-                guard let maxTemperature = json["forecasts"][0]["temperature"]["max"]["celsius"].string else {
-                    return
+                if let maxTemperature = json["forecasts"][0]["temperature"]["max"]["celsius"].string {
+                    self.maxTemperatures.append(maxTemperature)     // 配列に格納
+                } else {
+                    self.maxTemperatures.append("今日はありません。")    // nillの時は別の情報を入れる
                 }
-                self.maxTemperatures.append(maxTemperature)
+
                 // 最低気温を取得
-                guard let minTemperature = json["forecasts"][0]["temperature"]["min"]["celsius"].string else {
-                    return
+                if let minTemperature = json["forecasts"][0]["temperature"]["min"]["celsius"].string {
+                        self.minTemperatures.append(minTemperature)     // 配列に格納
+                } else {
+                    self.minTemperatures.append("今日はありません。")        // nillの時はじ別の情報を入れる。
                 }
-                self.minTemperatures.append(minTemperature)
                 
                 print(weatherImage)
-                print(weatherText)
+                print(self.weatherTexts)
                 print(self.detailWeatherTexts)
                 print(self.maxTemperatures)
                 print(self.minTemperatures)
-                
-                self.weatherTexts.append(weatherText)   // 配列に格納
                 
                 // 画像を取得して配列に格納
                 guard let testurl = URL(string: weatherImage) else {
@@ -194,7 +187,8 @@ class Home2ViewController: UIViewController, UITableViewDelegate, UITableViewDat
                  }catch let err {
                       print("Error : \(err.localizedDescription)")
                  }
-                
+           
+            // 情報取得失敗時の反応
             case .failure(let error):
                 print(error)
                 
