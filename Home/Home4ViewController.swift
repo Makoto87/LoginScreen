@@ -10,26 +10,32 @@ import UIKit
 
 class Home4ViewController: UIViewController {
 
-    var savedString: String = ""
+    @IBOutlet weak var emailLabel: UILabel!
     
+    @IBOutlet weak var passwordLabel: UILabel!
+    
+    // テキストを保存する
+    var savedEmail: String = ""
+    var savedPassword = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        print(savedEmail)
+        print(savedPassword)
         // Do any additional setup after loading the view.
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
-        
+        emailLabel.text = savedEmail
+        passwordLabel.text = savedPassword
     }
     
     // ログイン画面へ遷移する
     @IBAction func toLoginButton(_ sender: Any) {
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let nextvc = storyboard.instantiateViewController(withIdentifier: "Navi")
-//        nextvc.modalPresentationStyle = .fullScreen // 全面表示
-//        self.present(nextvc, animated: true, completion: nil)
+
         
         self.dismiss(animated: true, completion: nil)
         

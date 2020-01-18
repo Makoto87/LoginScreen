@@ -16,6 +16,8 @@ class Home2ViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     @IBOutlet weak var tableView: UITableView!
         
+    @IBOutlet weak var NoCountView: UIView!
+    
     // カウント数
     var count = 0
     
@@ -35,6 +37,13 @@ class Home2ViewController: UIViewController, UITableViewDelegate, UITableViewDat
     // カウントするたびに画面を更新する。
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        // カウントされた時にNoCountViewを後ろにする。0の時は前にする。
+        if count == 0 {
+            self.view.bringSubviewToFront(NoCountView)
+        } else {
+            self.view.sendSubviewToBack(NoCountView)
+        }
     }
     
     override func viewDidLoad() {

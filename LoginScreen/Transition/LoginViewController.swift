@@ -23,7 +23,8 @@ class LoginViewController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
+       // 画面遷移ボタンを使えなくする
+        nextViewButton.isEnabled = false
         
         // テキストフィールドに下線をつける
         emailTextField.addBorderBottom(height: 1.0, color: UIColor.white)
@@ -87,17 +88,44 @@ class LoginViewController: UIViewController, UITextViewDelegate {
          helpText.delegate = self
     }
     
+    // 文字が埋まっていたらボタンが使える
+    @IBAction func emailTextFieldAction(_ sender: Any) {
+        if emailTextField.text == "" || passwordTextField.text == "" {
+            nextViewButton.isEnabled = false
+        } else {
+            nextViewButton.isEnabled = true
+        }
+    }
+    
+    @IBAction func passwordTextFieldAction(_ sender: Any) {
+        if emailTextField.text == "" || passwordTextField.text == "" {
+            nextViewButton.isEnabled = false
+        } else {
+            nextViewButton.isEnabled = true
+        }
+    }
+    
+    
+    
+    
+    
     @IBAction func nextViewButton(_ sender: Any) {
+        
         
         // 画面遷移
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let nextvc = storyboard.instantiateViewController(withIdentifier: "TabBar")
+        let nextvc = storyboard.instantiateViewController(withIdentifier: "TabBar") as! TabBarViewController
         nextvc.modalPresentationStyle = .fullScreen // 全面表示
         self.present(nextvc, animated: true, completion: nil)
         // 遷移するときにトップ画面に戻しておく
         self.navigationController?.popToRootViewController(animated: true)
         
-//        self.dismiss(animated: true, completion: nil)
+        // emailとパスワードを渡す
+        if let controller = nextvc.viewControllers?[3] as? Home4ViewController {
+            controller.savedEmail = emailTextField.text!
+            controller.savedPassword = passwordTextField.text!
+        }
+        
     }
     
     

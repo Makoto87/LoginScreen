@@ -85,7 +85,7 @@ class Home1ViewController: UIViewController, UITabBarDelegate {
     
     // プラスボタン
     @IBAction func plusButton(_ sender: Any) {
-        
+                
         // インターバルのために無効
         plus.isEnabled = false
         minus.isEnabled = false
