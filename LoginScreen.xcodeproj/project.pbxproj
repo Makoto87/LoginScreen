@@ -8,8 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		3401586623C9CA8700AC5C6A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401586523C9CA8700AC5C6A /* DetailViewController.swift */; };
+		34016D4823D3D3D4004D4F78 /* PointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34016D4723D3D3D4004D4F78 /* PointViewController.swift */; };
+		34016D4A23D3D3F0004D4F78 /* InviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34016D4923D3D3F0004D4F78 /* InviteViewController.swift */; };
+		34016D4C23D3ED8B004D4F78 /* InviteCopyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34016D4B23D3ED8B004D4F78 /* InviteCopyLabel.swift */; };
 		340240C423B8A73200A98265 /* HomeNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340240C323B8A73200A98265 /* HomeNavigationViewController.swift */; };
 		3408BE7223B510EA009601DE /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3408BE7123B510EA009601DE /* NavigationViewController.swift */; };
+		34096EA823D3670D007DDD54 /* MypageNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34096EA723D3670D007DDD54 /* MypageNavigationController.swift */; };
 		340B114723B22D83006D08BF /* Home4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340B114623B22D83006D08BF /* Home4ViewController.swift */; };
 		3410762523B032320014F1F6 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3410762423B032320014F1F6 /* Home.storyboard */; };
 		3410762723B036040014F1F6 /* Home1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3410762623B036040014F1F6 /* Home1ViewController.swift */; };
@@ -54,8 +58,12 @@
 		091F2215839FBA01C1952591 /* Pods-LoginScreenTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoginScreenTests.debug.xcconfig"; path = "Target Support Files/Pods-LoginScreenTests/Pods-LoginScreenTests.debug.xcconfig"; sourceTree = "<group>"; };
 		144AFF41948D1B06C526AF34 /* Pods_LoginScreen_LoginScreenUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LoginScreen_LoginScreenUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3401586523C9CA8700AC5C6A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		34016D4723D3D3D4004D4F78 /* PointViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointViewController.swift; sourceTree = "<group>"; };
+		34016D4923D3D3F0004D4F78 /* InviteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteViewController.swift; sourceTree = "<group>"; };
+		34016D4B23D3ED8B004D4F78 /* InviteCopyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteCopyLabel.swift; sourceTree = "<group>"; };
 		340240C323B8A73200A98265 /* HomeNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigationViewController.swift; sourceTree = "<group>"; };
 		3408BE7123B510EA009601DE /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
+		34096EA723D3670D007DDD54 /* MypageNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageNavigationController.swift; sourceTree = "<group>"; };
 		340B114623B22D83006D08BF /* Home4ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home4ViewController.swift; sourceTree = "<group>"; };
 		3410762423B032320014F1F6 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		3410762623B036040014F1F6 /* Home1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home1ViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +125,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		34016D4623D3D3AD004D4F78 /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				34016D4723D3D3D4004D4F78 /* PointViewController.swift */,
+				34016D4923D3D3F0004D4F78 /* InviteViewController.swift */,
+				34016D4B23D3ED8B004D4F78 /* InviteCopyLabel.swift */,
+			);
+			path = MyPage;
+			sourceTree = "<group>";
+		};
 		3410762323B0320F0014F1F6 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +146,7 @@
 				340B114623B22D83006D08BF /* Home4ViewController.swift */,
 				340240C323B8A73200A98265 /* HomeNavigationViewController.swift */,
 				3401586523C9CA8700AC5C6A /* DetailViewController.swift */,
+				34096EA723D3670D007DDD54 /* MypageNavigationController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -137,6 +156,7 @@
 			children = (
 				342F3CE623A83EE5002CE1C1 /* AppDelegate.swift */,
 				342F3CE823A83EE5002CE1C1 /* SceneDelegate.swift */,
+				34016D4623D3D3AD004D4F78 /* MyPage */,
 				3410762323B0320F0014F1F6 /* Home */,
 				342F3CE523A83EE5002CE1C1 /* LoginScreen */,
 				342F3CFC23A83EE7002CE1C1 /* LoginScreenTests */,
@@ -466,11 +486,15 @@
 				342F3D1723A851B2002CE1C1 /* LoginViewController.swift in Sources */,
 				3408BE7223B510EA009601DE /* NavigationViewController.swift in Sources */,
 				342F3CEB23A83EE5002CE1C1 /* ViewController.swift in Sources */,
+				34016D4C23D3ED8B004D4F78 /* InviteCopyLabel.swift in Sources */,
 				3410762B23B0362E0014F1F6 /* Home3ViewController.swift in Sources */,
+				34096EA823D3670D007DDD54 /* MypageNavigationController.swift in Sources */,
 				3459EA7223B1359400921B7E /* TabBarViewController.swift in Sources */,
 				340240C423B8A73200A98265 /* HomeNavigationViewController.swift in Sources */,
 				340B114723B22D83006D08BF /* Home4ViewController.swift in Sources */,
 				342F3D1C23A85211002CE1C1 /* MakeAccountViewController.swift in Sources */,
+				34016D4A23D3D3F0004D4F78 /* InviteViewController.swift in Sources */,
+				34016D4823D3D3D4004D4F78 /* PointViewController.swift in Sources */,
 				342F3D2023A8AC1E002CE1C1 /* Button.swift in Sources */,
 				342F3CE723A83EE5002CE1C1 /* AppDelegate.swift in Sources */,
 				3410762723B036040014F1F6 /* Home1ViewController.swift in Sources */,

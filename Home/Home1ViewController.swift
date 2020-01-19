@@ -67,14 +67,16 @@ class Home1ViewController: UIViewController, UITabBarDelegate {
             controller.maxTemperatures.removeLast()
             controller.minTemperatures.removeLast()
             controller.weatherTexts.removeLast()
-            controller.weatherImages.removeLast()
+//            controller.weatherImages.removeLast()
+            controller.Nukeurl.removeLast()
             
             print(controller.count)
             print(controller.maxTemperatures)
             print(controller.minTemperatures)
-            print(controller.weatherImages)
+//            print(controller.weatherImages)
             print(controller.weatherTexts)
             print(controller.detailWeatherTexts)
+            print(controller.Nukeurl)
             
             // 画面を再形成させる
             controller.loadView()

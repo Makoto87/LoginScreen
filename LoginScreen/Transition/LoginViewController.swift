@@ -121,10 +121,12 @@ class LoginViewController: UIViewController, UITextViewDelegate {
         self.navigationController?.popToRootViewController(animated: true)
         
         // emailとパスワードを渡す
-        if let controller = nextvc.viewControllers?[3] as? Home4ViewController {
+        if let nc = nextvc.viewControllers?[3] as? MypageNavigationController, let controller = nc.viewControllers[0] as? Home4ViewController {
             controller.savedEmail = emailTextField.text!
             controller.savedPassword = passwordTextField.text!
         }
+        
+       
         
     }
     

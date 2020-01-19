@@ -9,6 +9,7 @@ target 'LoginScreen' do
 
 pod "SwiftyJSON"
 pod "Alamofire"
+pod 'Nuke', '~> 8.0'
 
   target 'LoginScreenTests' do
     inherit! :search_paths

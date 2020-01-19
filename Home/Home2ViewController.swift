@@ -10,6 +10,7 @@ import UIKit
 // ライブラリ
 import Alamofire
 import SwiftyJSON
+import Nuke
 
 
 class Home2ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITabBarDelegate {
@@ -21,11 +22,14 @@ class Home2ViewController: UIViewController, UITableViewDelegate, UITableViewDat
     // カウント数
     var count = 0
     
-    var weatherImages: [UIImage] = []       // 天気の画像を入れる配列
+//    var weatherImages: [UIImage] = []       // 天気の画像を入れる配列
     var weatherTexts:[String] = []  // 天気の文字を入れる配列
     var detailWeatherTexts: [String] = []   // 天気概況分を入れる配列
     var maxTemperatures: [String] = []  // 最高気温を入れる配列
     var minTemperatures: [String] = []   // 最低気温を入れる配列
+    
+    // 画像urlを格納
+    var Nukeurl: [URL] = []
     
     //次の画面へ持っていくテキスト
     var nvcDetail = ""
@@ -74,7 +78,9 @@ class Home2ViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let cell: Cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! Cell
         
         cell.cellTitle.text = weatherTexts[indexPath.row]       // 天気の名前
-        cell.cellImage.image = weatherImages[indexPath.row]     // 天気の画像
+//        cell.cellImage.image = weatherImages[indexPath.row]     // 天気の画像表示
+        print(Nukeurl[indexPath.row])
+        Nuke.loadImage(with: Nukeurl[indexPath.row], into: cell.cellImage)  // NUKEでurlから画像を取得して表示する
 //        cell.cellButton.layer.cornerRadius = 10     // 今回は使わない
 
         return cell
@@ -180,22 +186,28 @@ class Home2ViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 print(self.maxTemperatures)
                 print(self.minTemperatures)
                 
-                // 画像を取得して配列に格納
-                guard let testurl = URL(string: weatherImage) else {
-                    return
+                // 取得した画像urlをURL型に変換し、配列に格納
+                if let catchNukeURL = URL(string: weatherImage) {
+                    self.Nukeurl.append(catchNukeURL)
                 }
-                do {
-                    print(testurl)
-                      let data = try Data(contentsOf: testurl)
-                      let weatherImage = UIImage(data: data)
-
-                    self.weatherImages.append(weatherImage!)  // 用意した配列に格納
-                    
-                    print(self.weatherImages)
-                    
-                 }catch let err {
-                      print("Error : \(err.localizedDescription)")
-                 }
+                print(self.Nukeurl)
+                
+//                // 画像を取得して配列に格納
+//                guard let testurl = URL(string: weatherImage) else {
+//                    return
+//                }
+//                do {
+//                    print(testurl)
+//                      let data = try Data(contentsOf: testurl)
+//                      let weatherImage = UIImage(data: data)
+//
+//                    self.weatherImages.append(weatherImage!)  // 用意した配列に格納
+//
+//                    print(self.weatherImages)
+//
+//                 }catch let err {
+//                      print("Error : \(err.localizedDescription)")
+//                 }
            
             // 情報取得失敗時の反応
             case .failure(let error):
