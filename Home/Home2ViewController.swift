@@ -19,6 +19,8 @@ class Home2ViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
     @IBOutlet weak var NoCountView: UIView!
     
+    @IBOutlet weak var searchButton: UIButton!
+    
     // カウント数
     var count = 0
     
@@ -48,6 +50,9 @@ class Home2ViewController: UIViewController, UITableViewDelegate, UITableViewDat
         } else {
             self.view.sendSubviewToBack(NoCountView)
         }
+        
+        // ボタンの角を丸くする
+        self.searchButton.layer.cornerRadius = 20.0
     }
     
     override func viewDidLoad() {
@@ -192,7 +197,7 @@ class Home2ViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 }
                 print(self.Nukeurl)
                 
-//                // 画像を取得して配列に格納
+//                // 課題3。画像を取得して配列に格納
 //                guard let testurl = URL(string: weatherImage) else {
 //                    return
 //                }
