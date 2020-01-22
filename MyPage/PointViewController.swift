@@ -24,7 +24,7 @@ class PointViewController: UIViewController, UICollectionViewDelegate, UICollect
     let titles = ["友人を招待しよう", "Twitterをフォロー", "Facebookをフォロー"]
     let images: [UIImage] = [UIImage(named: "cake")!, UIImage(named: "shop")!, UIImage(named: "take")!]
     let detailtexts = ["ご友人を招待して、PICKSを利用するとあなたもお得に。", "お得なキャンペーンなどの情報を発信しています。", "PICKSについての最新情報などを発信しています。"]
-    let urls = ["nextvc", "https://twitter.com", "https://www.facebook.com/"]
+    let urls = ["nextvc", "https://twitter.com/picks_fun", "https://www.facebook.com/picks.fun/"]
     let colors: [UIColor] = [.red, #colorLiteral(red: 0.1019607857, green: 0.2784313858, blue: 0.400000006, alpha: 1), .black]
     
     override func viewDidLoad() {
@@ -104,6 +104,8 @@ class PointViewController: UIViewController, UICollectionViewDelegate, UICollect
                 UIApplication.shared.open(url! as URL, options: [:], completionHandler: nil)
             }
         }
+        let url = URL(string: "https://twitter.com/intent/tweet?text=%E3%80%90%20%23PICKS%E3%81%A7%E3%83%86%E3%82%A4%E3%82%AF%E3%82%A2%E3%82%A6%E3%83%88%E3%81%97%E3%82%88%E3%81%86%20%E3%80%91%0A%E7%A7%81%E3%81%AE%E6%8B%9B%E5%BE%85%E3%82%B3%E3%83%BC%E3%83%89%3Cpicks-abcdefg%3E%E3%82%92%E4%BC%9A%E5%93%A1%E7%99%BB%E9%8C%B2%E6%99%82%E3%81%AB%E5%85%A5%E5%8A%9B%E3%81%99%E3%82%8C%E3%81%B0%E3%80%81%23PICKS%20%E3%81%AE%E5%88%9D%E5%9B%9E%E6%B3%A8%E6%96%87%E3%81%8C600%E5%86%86%E5%89%B2%E5%BC%95%E3%81%AB%E3%81%AA%E3%82%8A%E3%81%BE%E3%81%99%5E_%5E%0Ahttps://picks.fun")
+        UIApplication.shared.open(url!, options:[:], completionHandler: nil)
         
     }
 
