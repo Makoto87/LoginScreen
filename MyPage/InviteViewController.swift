@@ -10,9 +10,17 @@ import UIKit
 
 class InviteViewController: UIViewController {
 
-    @IBOutlet weak var quponCodeLabel: UILabel!
+    @IBOutlet weak var marginView1: UIView!
+    @IBOutlet weak var marginView2: UIView!
+    @IBOutlet weak var marginView3: UIView!
     
-    @IBOutlet weak var quponLabel: UILabel!
+    
+    @IBOutlet weak var titleLabel: UILabel!     // 一番目立つラベル
+    @IBOutlet weak var explainLabel: UILabel!       // 説明文のラベル
+    @IBOutlet weak var quponCodeLabel: UILabel!     // クーポンコードのラベル
+    @IBOutlet weak var quponLabel: UILabel!     // クーポンコードが下にあることを伝えるラベル
+    @IBOutlet weak var snsLabel: UILabel!       // 下にSNSに遷移するアイコンがあることを示すラベル
+    @IBOutlet weak var snsStackview: UIStackView!
     
     // 各アイコンのoutlet
     @IBOutlet weak var facebookIcon: UIButton!
@@ -20,15 +28,34 @@ class InviteViewController: UIViewController {
     @IBOutlet weak var lineIcon: UIButton!
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        // 大きすぎるとラベルの枠に合わせてくれる
+        titleLabel.adjustsFontSizeToFitWidth = true
+//        titleLabel.minimumScaleFactor = 0.3
+        // 各iPhoneに対応しするレイアウトを形成する
+        self.marginView1.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.05).isActive = true
+        self.marginView2.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.10).isActive = true
+        
+        self.marginView3.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.05).isActive = true
+        self.titleLabel.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.12).isActive = true
+//        self.snsLabel.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.10).isActive = true
+        
+        
+        
         // ラベルのタッチ操作を許可する
         quponCodeLabel.isUserInteractionEnabled = true
         
         // 「あなたのクーポンコード」にボーダーつける
         self.quponLabel.layer.borderWidth = 1.0    // 枠線の幅
         self.quponLabel.layer.borderColor = UIColor.systemOrange.cgColor
+        // 影をつける
+        self.quponLabel.layer.shadowOpacity = 0.2
+        self.quponLabel.layer.shadowRadius = 4
+        self.quponLabel.layer.shadowColor = UIColor.black.cgColor
+        self.quponLabel.layer.shadowOffset = CGSize(width: 3, height: 3)
         // 角を丸くする
         self.quponLabel.layer.cornerRadius = 4.0
         

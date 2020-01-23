@@ -42,17 +42,19 @@ class PointViewController: UIViewController, UICollectionViewDelegate, UICollect
         self.orangeImageView.layer.shadowColor = UIColor.black.cgColor
         self.orangeImageView.layer.shadowOffset = CGSize(width: 3, height: 3)
         
+        // ポイント画面の高さを全体の30%にする
+        orangeImageView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.30).isActive = true
+        
         // コレクションビューのサイズ設定
         let layout = UICollectionViewFlowLayout()
-        let height = collectionView.frame.height
-//        let width = CollectionCell.frame.width
-        layout.itemSize = CGSize(width: 162, height: height - 20)
+        let height = collectionView.frame.height * 0.75
+        let width = collectionView.frame.width / 2
+        layout.itemSize = CGSize(width: width, height: height)
         collectionView.collectionViewLayout = layout
         // コレクションビューのスクロール設定
         layout.scrollDirection = .horizontal // 横スクロール
-        collectionView.collectionViewLayout = layout
+//        collectionView.collectionViewLayout = layout
         
-        // セルの角を丸くする
         
     }
 
@@ -71,6 +73,8 @@ class PointViewController: UIViewController, UICollectionViewDelegate, UICollect
         return 3
     }
     
+    
+    
     // セルの表示
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
@@ -83,9 +87,15 @@ class PointViewController: UIViewController, UICollectionViewDelegate, UICollect
         // セルの角を丸くする
         cell.layer.cornerRadius = 8
         
+        // セルのレイアウト
+        cell.collectionCellView.heightAnchor.constraint(equalTo: cell.heightAnchor, multiplier: 0.17).isActive = true
+        
         // 詳細分の背景色
         cell.collectionCellView.backgroundColor = colors[indexPath.row]
         cell.backgroundColor = colors[indexPath.row]
+        
+        cell.collectionCellImage.alpha = 0.6
+
         
         return cell
     }
