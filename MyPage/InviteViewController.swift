@@ -93,6 +93,8 @@ class InviteViewController: UIViewController {
         
         // ナビゲーションバーを出す。
         navigationController?.setNavigationBarHidden(false, animated: false)
+        
+        
     }
     
     // ボタンを押したらfacebbokシェアのリンクへ飛ぶ

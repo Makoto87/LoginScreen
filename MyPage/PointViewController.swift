@@ -60,7 +60,6 @@ class PointViewController: UIViewController, UICollectionViewDelegate, UICollect
         collectionView.collectionViewLayout = layout
         // コレクションビューのスクロール設定
         layout.scrollDirection = .horizontal // 横スクロール
-//        collectionView.collectionViewLayout = layout
         
         
     }
@@ -113,6 +112,8 @@ class PointViewController: UIViewController, UICollectionViewDelegate, UICollect
         if urls[indexPath.row] == "nextvc" {
             // 別の画面に遷移
             performSegue(withIdentifier: "toInvite", sender: nil)
+            // backボタンの文字を消す
+            navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         } else {
             let URL = urls[indexPath.row]
             // urlに飛ぶ
