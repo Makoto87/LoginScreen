@@ -10,10 +10,9 @@ import UIKit
 
 class InviteViewController: UIViewController {
 
-    @IBOutlet weak var marginView1: UIView!
-    @IBOutlet weak var marginView2: UIView!
-    @IBOutlet weak var marginView3: UIView!
+    @IBOutlet weak var topMarginView: UIView!
     
+    @IBOutlet weak var responsibeQuponView: UIView!
     
     @IBOutlet weak var titleLabel: UILabel!     // 一番目立つラベル
     @IBOutlet weak var explainLabel: UILabel!       // 説明文のラベル
@@ -36,12 +35,16 @@ class InviteViewController: UIViewController {
         titleLabel.adjustsFontSizeToFitWidth = true
 //        titleLabel.minimumScaleFactor = 0.3
         // 各iPhoneに対応しするレイアウトを形成する
-        self.marginView1.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.05).isActive = true
-        self.marginView2.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.10).isActive = true
         
-        self.marginView3.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.05).isActive = true
-        self.titleLabel.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.12).isActive = true
-//        self.snsLabel.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.10).isActive = true
+        // 一番上のマージンをつけるビュー
+        self.topMarginView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.07).isActive = true
+        // 見出しのラベルの高さ
+        self.titleLabel.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.15).isActive = true
+        self.snsLabel.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.10).isActive = true
+        // クーポンコードのビュー
+        self.quponCodeLabel.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.10).isActive = true
+        // クーポンコードをまとめたビュー
+            self.responsibeQuponView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.25).isActive = true
         
         
         

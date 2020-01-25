@@ -10,6 +10,9 @@ import UIKit
 
 class PointViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
+    @IBOutlet weak var marginVIew: UIView!
+    
+    
     @IBOutlet weak var pointLabel: UILabel!
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -43,7 +46,11 @@ class PointViewController: UIViewController, UICollectionViewDelegate, UICollect
         self.orangeImageView.layer.shadowOffset = CGSize(width: 3, height: 3)
         
         // ポイント画面の高さを全体の30%にする
-        orangeImageView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.30).isActive = true
+        orangeImageView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.32).isActive = true
+        // 余白を空けるためのビュー
+        marginVIew.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.04).isActive = true
+        // コレクションビューの高さ
+        collectionView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.40).isActive = true
         
         // コレクションビューのサイズ設定
         let layout = UICollectionViewFlowLayout()
@@ -92,9 +99,9 @@ class PointViewController: UIViewController, UICollectionViewDelegate, UICollect
         
         // 詳細分の背景色
         cell.collectionCellView.backgroundColor = colors[indexPath.row]
-        cell.backgroundColor = colors[indexPath.row]
+        cell.backgroundColor = .black
         
-        cell.collectionCellImage.alpha = 0.6
+        cell.collectionCellImage.alpha = 0.75
 
         
         return cell
@@ -114,8 +121,6 @@ class PointViewController: UIViewController, UICollectionViewDelegate, UICollect
                 UIApplication.shared.open(url! as URL, options: [:], completionHandler: nil)
             }
         }
-        let url = URL(string: "https://twitter.com/intent/tweet?text=%E3%80%90%20%23PICKS%E3%81%A7%E3%83%86%E3%82%A4%E3%82%AF%E3%82%A2%E3%82%A6%E3%83%88%E3%81%97%E3%82%88%E3%81%86%20%E3%80%91%0A%E7%A7%81%E3%81%AE%E6%8B%9B%E5%BE%85%E3%82%B3%E3%83%BC%E3%83%89%3Cpicks-abcdefg%3E%E3%82%92%E4%BC%9A%E5%93%A1%E7%99%BB%E9%8C%B2%E6%99%82%E3%81%AB%E5%85%A5%E5%8A%9B%E3%81%99%E3%82%8C%E3%81%B0%E3%80%81%23PICKS%20%E3%81%AE%E5%88%9D%E5%9B%9E%E6%B3%A8%E6%96%87%E3%81%8C600%E5%86%86%E5%89%B2%E5%BC%95%E3%81%AB%E3%81%AA%E3%82%8A%E3%81%BE%E3%81%99%5E_%5E%0Ahttps://picks.fun")
-        UIApplication.shared.open(url!, options:[:], completionHandler: nil)
         
     }
 
@@ -127,5 +132,6 @@ class CollectionCell: UICollectionViewCell {
     @IBOutlet weak var collectionCellTitleLabel: UILabel!
     @IBOutlet weak var collectionCellDetailLabel: UILabel!
     @IBOutlet weak var collectionCellView: UIView!
+    
     
 }
