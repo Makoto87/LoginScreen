@@ -36,16 +36,16 @@ class InviteViewController: UIViewController {
 //        titleLabel.minimumScaleFactor = 0.3
         // 各iPhoneに対応しするレイアウトを形成する
         
-        // 一番上のマージンをつけるビュー
-        self.topMarginView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.07).isActive = true
-        // 見出しのラベルの高さ
-        self.titleLabel.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.15).isActive = true
-        self.snsLabel.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.10).isActive = true
-        // クーポンコードのビュー
-        self.quponCodeLabel.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.10).isActive = true
-        // クーポンコードをまとめたビュー
-            self.responsibeQuponView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.25).isActive = true
-        
+//        // 一番上のマージンをつけるビュー
+//        self.topMarginView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.05).isActive = true
+//        // 見出しのラベルの高さ
+//        self.titleLabel.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.17).isActive = true
+//        self.snsLabel.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.10).isActive = true
+//        // クーポンコードのビュー
+//        self.quponCodeLabel.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.10).isActive = true
+//        // クーポンコードをまとめたビュー
+//            self.responsibeQuponView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.25).isActive = true
+//        
         
         
         // ラベルのタッチ操作を許可する

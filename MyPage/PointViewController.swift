@@ -10,7 +10,6 @@ import UIKit
 
 class PointViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
-    @IBOutlet weak var marginVIew: UIView!
     
     
     @IBOutlet weak var pointLabel: UILabel!
@@ -45,17 +44,14 @@ class PointViewController: UIViewController, UICollectionViewDelegate, UICollect
         self.orangeImageView.layer.shadowColor = UIColor.black.cgColor
         self.orangeImageView.layer.shadowOffset = CGSize(width: 3, height: 3)
         
-        // ポイント画面の高さを全体の30%にする
-        orangeImageView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.32).isActive = true
-        // 余白を空けるためのビュー
-        marginVIew.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.04).isActive = true
+
         // コレクションビューの高さ
-        collectionView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.40).isActive = true
+//        collectionView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.40).isActive = true
         
         // コレクションビューのサイズ設定
         let layout = UICollectionViewFlowLayout()
-        let height = collectionView.frame.height * 0.75
-        let width = collectionView.frame.width / 2
+        let height = collectionView.frame.height * 0.70
+        let width = collectionView.frame.width / 1.7
         layout.itemSize = CGSize(width: width, height: height)
         collectionView.collectionViewLayout = layout
         // コレクションビューのスクロール設定
@@ -63,6 +59,17 @@ class PointViewController: UIViewController, UICollectionViewDelegate, UICollect
         
         
     }
+    
+    // コレクションビューのコピペ
+//    func setupCollectionView() {
+//        collectionView.contentInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+//        collectionView.register(
+//            UINib(nibName: "CollectionViewCell", bundle: nil),
+//            forCellWithReuseIdentifier: "Cell")
+//
+//        let layout = collectionView.layer as! UICollectionViewFlowLayout
+//        layout.minimumInteritemSpacing = 8
+//    }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -86,6 +93,7 @@ class PointViewController: UIViewController, UICollectionViewDelegate, UICollect
         
         let cell: CollectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionCell", for: indexPath) as! CollectionCell
         
+        
         cell.collectionCellImage.image = images[indexPath.row]
         cell.collectionCellTitleLabel.text = titles[indexPath.row]
         cell.collectionCellDetailLabel.text = detailtexts[indexPath.row]
@@ -94,7 +102,8 @@ class PointViewController: UIViewController, UICollectionViewDelegate, UICollect
         cell.layer.cornerRadius = 8
         
         // セルのレイアウト
-        cell.collectionCellView.heightAnchor.constraint(equalTo: cell.heightAnchor, multiplier: 0.17).isActive = true
+//        cell.heightAnchor.constraint(equalTo: cell.heightAnchor, multiplier: 0.17).isActive = true
+////        cell.collectionCellView.heightAnchor.constraint(equalTo: cell.heightAnchor, multiplier: 0.17).isActive = true
         
         // 詳細分の背景色
         cell.collectionCellView.backgroundColor = colors[indexPath.row]
@@ -124,6 +133,14 @@ class PointViewController: UIViewController, UICollectionViewDelegate, UICollect
         }
         
     }
+    
+//    // セルの大きさ
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        // 例えば端末サイズの半分の width と height にして 2 列にする場合
+//        let height: CGFloat = collectionView.bounds.height * 0.85
+//        let width = height * 0.70
+//        return CGSize(width: width, height: height)
+//    }
 
 }
 
@@ -133,6 +150,18 @@ class CollectionCell: UICollectionViewCell {
     @IBOutlet weak var collectionCellTitleLabel: UILabel!
     @IBOutlet weak var collectionCellDetailLabel: UILabel!
     @IBOutlet weak var collectionCellView: UIView!
+    
+//    override func awakeFromNib() {
+//    super.awakeFromNib()
+//    contentView.translatesAutoresizingMaskIntoConstraints = false
+//
+//    NSLayoutConstraint.activate([
+//        contentView.leadingAnchor.constraint(equalTo: leadingAnchor),
+//        contentView.trailingAnchor.constraint(equalTo: trailingAnchor),
+//        contentView.topAnchor.constraint(equalTo: topAnchor),
+//        contentView.bottomAnchor.constraint(equalTo: bottomAnchor)
+//    ])
+//    }
     
     
 }

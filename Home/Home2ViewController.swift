@@ -40,6 +40,9 @@ class Home2ViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     var url = ""    // urlを格納するための変数
     
+    let semaphore = DispatchSemaphore(value: 1)
+    var refreshControl:UIRefreshControl!
+    
     // カウントするたびに画面を更新する。
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -64,7 +67,37 @@ class Home2ViewController: UIViewController, UITableViewDelegate, UITableViewDat
         // 影を消す
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
+        
+        // リロードを表示
+        refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "再読み込み中")
+        refreshControl.addTarget(self, action: #selector(Home2ViewController.refresh), for: UIControl.Event.valueChanged)
+        tableView.addSubview(refreshControl)
 
+    }
+    func updateTable () {
+        //時間がかかる処理と想定してグローバルキューで実行
+        DispatchQueue.global().async {
+             
+//            for (i, num) in self.numberList.enumerated() {
+//                self.numberList[i] = num * 2
+//            }
+//            DispatchQueue.main.async {
+//                // UI更新はメインスレッドで実行
+//                self.tableView.reloadData()
+//                self.semaphore.signal()
+//            }
+        }
+    }
+     
+    //UIRefreshControl によって画面を縦にフリックしたあとに呼ばれる
+    @objc func refresh() {
+        updateTable()
+        // 別スレッドでの処理が終了するのを待つ
+        semaphore.wait()
+        semaphore.signal()
+        //この処理の前にbeginRefreshingが呼ばれているはずなので終了する
+        refreshControl.endRefreshing()
     }
     
     // countの数だけセルが生成される
@@ -222,6 +255,17 @@ class Home2ViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
         }
     }
+    
+    @IBAction func searchButtonAction(_ sender: Any) {
+        
+        // 画面遷移
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let nextvc = storyboard.instantiateViewController(withIdentifier: "TabBar") as! TabBarViewController
+        nextvc.modalPresentationStyle = .fullScreen // 全面表示
+        self.present(nextvc, animated: false, completion: nil)
+        
+    }
+    
 
 }
 
